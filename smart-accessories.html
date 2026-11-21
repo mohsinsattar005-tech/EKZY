@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart accessories that connect, protect and enhance your digital lifestyle.">
+    <title>Smart Accessories - Ozvio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="category-gold.css">
+</head>
+<body>
+    <!-- Header / Navigation (same as home page) -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="index.html" class="logo" aria-label="Ozvio home">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gadgets.html">Gadgets</a></li>
+                    <li><a href="electronics.html">Electronics</a></li>
+                    <li><a href="smart-accessories.html" class="active" aria-current="page">Smart Accessories</a></li>
+                    <li><a href="tech-essentials.html">Tech Essentials</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-bar" id="searchForm" role="search">
+                <input type="search" placeholder="Search smart accessories..." class="search-input" id="searchInput" aria-label="Search smart accessories">
+                <button type="submit" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#" class="icon-link" id="accountLink" title="Account" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="icon-link" id="wishlistLink" title="Wishlist" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlistCount" hidden>0</span>
+                </a>
+                <a href="cart/cart.html" class="icon-link" id="cartLink" title="Cart" aria-label="Cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="badge" id="cartCount" hidden>0</span>
+</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero cat-hero" id="top">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <nav class="crumbs" aria-label="Breadcrumb">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span>Smart Accessories</span>
+                    </nav>
+                    <span class="cat-tag">Smart living</span>
+                    <h1 class="hero-title">Intelligent<br><span class="gold-text">Accessories</span></h1>
+                    <p class="hero-subtitle">Smart accessories that connect, protect and enhance your digital lifestyle.</p>
+                    <div class="hero-actions">
+                        <a href="#products" class="btn btn-primary">Shop Now</a>
+                        <a href="index.html#categories" class="btn btn-outline">All Categories</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-stage">
+                        <div class="orbit orbit-1"></div>
+                        <div class="orbit orbit-2"></div>
+                        <div class="floating-card card-1"><i class="fas fa-battery-full"></i></div>
+                        <div class="floating-card card-2"><i class="fas fa-mouse"></i></div>
+                        <div class="floating-card card-3"><i class="fas fa-plug"></i></div>
+                        <div class="floating-card card-4"><i class="fas fa-mobile-alt"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section class="cat-products" id="products">
+            <div class="container">
+                <div class="toolbar">
+                    <h2 class="section-title">All smart accessories</h2>
+                    <div class="sort">
+                        <label for="sortSelect">Sort by</label>
+                        <div class="sort-wrap">
+                            <select id="sortSelect">
+                                <option value="newest">Newest first</option>
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="rating">Top Rated</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-grid" id="products-container">
+                    <!-- Products are rendered by category-gold.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as home page) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gadgets.html">Gadgets</a></li>
+                        <li><a href="electronics.html">Electronics</a></li>
+                        <li><a href="smart-accessories.html">Smart Accessories</a></li>
+                        <li><a href="tech-essentials.html">Tech Essentials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Ozvio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!--
+        HOW TO ADD A NEW PRODUCT
+        Add ONE line to the list below. That is all.
+          name     - product name
+          price    - current price (number, no $)
+          oldPrice - old price (number). Higher than price = discount badge appears automatically. Use 0 for none.
+          rating   - 0 to 5
+          icon     - Font Awesome icon class (or use  image: 'images/photo.webp'  instead)
+          added    - date added, YYYY-MM-DD. Used for "Newest first". Products added in the last 30 days get a NEW badge.
+        Sorting (price low/high, newest, top rated) works automatically for every product in this list.
+    -->
+    <script>
+    window.CATEGORY_PRODUCTS = [
+        { name: 'Anker PowerCore 26800mAh', price: 59, oldPrice: 79, rating: 4.8, icon: 'fas fa-battery-full', added: '2026-10-18' },
+        { name: 'USB-C to HDMI Adapter', price: 29, oldPrice: 39, rating: 4.7, icon: 'fas fa-tv', added: '2026-11-17' },
+        { name: 'iPhone 15 Pro Case', price: 39, oldPrice: 49, rating: 4.6, icon: 'fas fa-mobile-alt', added: '2026-09-05' },
+        { name: 'Logitech MX Master 3S', price: 99, oldPrice: 129, rating: 4.9, icon: 'fas fa-mouse', added: '2026-11-10' },
+        { name: 'USB-C Hub 7-in-1', price: 49, oldPrice: 59, rating: 4.7, icon: 'fas fa-layer-group', added: '2026-08-25' },
+        { name: 'Adjustable Laptop Stand', price: 44, oldPrice: 59, rating: 4.8, icon: 'fas fa-laptop', added: '2026-11-19' },
+    ];
+    </script>
+    <script src="category-gold.js"></script>
+</body>
+</html>

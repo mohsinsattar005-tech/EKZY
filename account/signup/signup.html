@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create an OZVIO account">
+    <title>Sign Up - OZVIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../shared/styles/account.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="../../index.html" class="logo" aria-label="OZVIO home">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#categories">Categories</a></li>
+                    <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                    <li><a href="../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-bar" id="searchForm" role="search">
+                <input type="search" placeholder="Search products..." class="search-input" id="searchInput" aria-label="Search products">
+                <button type="submit" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#" class="icon-link" id="accountLink" title="Account" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="icon-link" id="wishlistLink" title="Wishlist" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlistCount" hidden>0</span>
+                </a>
+                <a href="../../cart/cart.html" class="icon-link" id="cartLink" title="Cart" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount" hidden>0</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="account-page" id="signup">
+            <div class="account-container">
+                <div class="account-header">
+                    <h1>Create Account</h1>
+                    <p>Join OZVIO and start shopping with us today.</p>
+                </div>
+
+                <div class="auth-layout">
+                    <!-- Form side -->
+                    <div class="auth-form-card">
+                        <h2>Sign Up</h2>
+                        <p>Fill in your details below to create your OZVIO account.</p>
+
+                        <form id="signupForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="signupFullName">Full Name <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="signupFullName" name="fullName" placeholder="John Doe" required>
+                                    <div class="error-msg" id="signupFullNameError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Please enter your full name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupEmail">Email Address <span style="color: var(--danger)">*</span></label>
+                                    <input type="email" id="signupEmail" name="email" placeholder="you@example.com" required>
+                                    <div class="error-msg" id="signupEmailError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group auth-input-group">
+                                <label for="signupPassword">Password <span style="color: var(--danger)">*</span></label>
+                                <input type="password" id="signupPassword" name="password" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password" id="toggleSignupPassword" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="error-msg" id="signupPasswordError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Password must be at least 8 characters.</div>
+                            </div>
+
+                            <div class="form-group auth-input-group">
+                                <label for="signupConfirmPassword">Confirm Password <span style="color: var(--danger)">*</span></label>
+                                <input type="password" id="signupConfirmPassword" name="confirmPassword" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password" id="toggleConfirmPassword" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="error-msg" id="signupConfirmPasswordError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Passwords do not match.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="signupPhone">Phone Number</label>
+                                <input type="tel" id="signupPhone" name="phone" placeholder="+1 (555) 000-0000">
+                            </div>
+
+                            <div class="auth-options">
+                                <label class="remember-me">
+                                    <input type="checkbox" id="signupTerms" name="terms" required>
+                                    <span>I agree to the <a href="../terms/terms.html" style="color: var(--gold)">Terms of Service</a> and <a href="../privacy/privacy.html" style="color: var(--gold)">Privacy Policy</a></span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-auth" id="signupBtn">Create Account</button>
+                        </form>
+
+                        <div class="auth-footer">
+                            Already have an account? <a href="../login/login.html">Sign in</a>
+                        </div>
+                    </div>
+
+                    <!-- Info side -->
+                    <div class="auth-info">
+                        <div class="auth-info-panel">
+                            <h3><i class="fas fa-user-plus"></i>Join OZVIO today</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i>Track orders and view order history</li>
+                                <li><i class="fas fa-check"></i>Save shipping addresses for faster checkout</li>
+                                <li><i class="fas fa-check"></i>Build your wishlist of favorite products</li>
+                                <li><i class="fas fa-check"></i>Get early access to sales and promotions</li>
+                                <li><i class="fas fa-check"></i>Manage your profile and preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#categories">Categories</a></li>
+                        <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                        <li><a href="../../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="../faq/faq.html">FAQs</a></li>
+                        <li><a href="../shipping/shipping.html">Shipping Info</a></li>
+                        <li><a href="../returns/returns.html">Returns</a></li>
+                        <li><a href="../track-order/track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> OZVIO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../../script.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

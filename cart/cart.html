@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - Ozvio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header class="zc-header">
+        <div class="zc-container zc-header-row">
+            <a href="../index.html" class="zc-logo" aria-label="Ozvio home">
+                <span class="zc-logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="zc-logo-text">OZVIO</span>
+            </a>
+            <nav class="zc-nav" aria-label="Main navigation">
+                <a href="../index.html#home">Home</a>
+                <a href="../index.html#categories">Categories</a>
+                <a href="../index.html#new-arrivals">New Arrivals</a>
+                <a href="../index.html#contact">Contact Us</a>
+            </nav>
+            <a href="cart.html" class="zc-cart-link" aria-label="Cart" aria-current="page">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="zc-badge" id="cartCount" hidden>0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="zc-container zc-main">
+        <a href="../index.html#new-arrivals" class="zc-back"><i class="fas fa-arrow-left"></i> Keep shopping</a>
+
+        <div id="cartView">
+            <h1 class="zc-title" id="cartTitle">Your cart</h1>
+
+            <div class="zc-layout" id="cartLayout">
+                <section class="zc-left" aria-label="Cart items">
+                    <div class="zc-shop-card">
+                        <div class="zc-shop-head">
+                            <span class="zc-shop-avatar"><i class="fas fa-globe"></i></span>
+                            <div>
+                                <strong>Ozvio Store</strong>
+                                <span class="zc-shop-sub"><i class="fas fa-shield-halved"></i> Ships worldwide, free shipping on all orders</span>
+                            </div>
+                        </div>
+                        <div id="cartItems"></div>
+                    </div>
+
+                    <div id="savedBlock" class="zc-saved" hidden>
+                        <h2 class="zc-h2">Saved for later <span id="savedCount"></span></h2>
+                        <div id="savedItems"></div>
+                    </div>
+                </section>
+
+                <aside class="zc-summary" aria-label="Order summary">
+                    <h2 class="zc-h2">How you'll pay</h2>
+                    <div class="zc-pay-icons" aria-hidden="true">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-apple-pay"></i>
+                    </div>
+
+                    <form class="zc-coupon" id="couponForm">
+                        <label for="couponInput">Apply coupon code</label>
+                        <div class="zc-coupon-row">
+                            <input type="text" id="couponInput" placeholder="Enter code" autocomplete="off">
+                            <button type="submit">Apply</button>
+                        </div>
+                        <p class="zc-coupon-msg" id="couponMsg" role="status"></p>
+                    </form>
+
+                    <div class="zc-rows">
+                        <div class="zc-row"><span>Item(s) total</span><span id="itemsTotal">$0</span></div>
+                        <div class="zc-row zc-discount" id="discountRow" hidden><span>Coupon discount</span><span id="discountAmt">-$0</span></div>
+                        <div class="zc-row"><span>Shipping</span><span class="zc-free">Free</span></div>
+                        <div class="zc-row zc-total"><span>Total <small>(<span id="totalQty">0</span> items)</small></span><span id="grandTotal">$0</span></div>
+                    </div>
+
+                    <button type="button" class="zc-btn zc-btn-gold zc-btn-block" id="checkoutBtn">Proceed to checkout</button>
+                    <p class="zc-protect"><i class="fas fa-lock"></i> Secure checkout. Purchases are protected by Ozvio.</p>
+                </aside>
+            </div>
+
+            <div class="zc-empty" id="emptyState" hidden>
+                <span class="zc-empty-icon"><i class="fas fa-shopping-cart"></i></span>
+                <h2>Your cart is empty</h2>
+                <p>Add something you love and it will show up here.</p>
+                <a href="../index.html#new-arrivals" class="zc-btn zc-btn-gold">Shop new arrivals</a>
+            </div>
+        </div>
+
+        <section class="zc-suggest" id="suggestSection" aria-labelledby="suggestTitle">
+            <div class="zc-suggest-head">
+                <h2 id="suggestTitle">Suggested for you</h2>
+                <p>Picked from our latest arrivals.</p>
+            </div>
+            <div class="zc-products" id="suggestGrid"></div>
+        </section>
+    </main>
+
+    <footer class="zc-footer">
+        <div class="zc-container">
+            <p>&copy; <span id="year">2026</span> Ozvio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="zc-toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

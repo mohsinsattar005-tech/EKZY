@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OZVIO Admin Dashboard">
+    <title>Dashboard - OZVIO Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="dashboard/dashboard.css">
+</head>
+<body class="admin-page">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="admin-brand">
+                <i class="fas fa-globe"></i>
+                <span>OZVIO Admin</span>
+            </div>
+
+            <div class="admin-top-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search products, orders, customers..." aria-label="Search admin">
+            </div>
+
+            <div class="admin-top-actions">
+                <a href="#" class="icon-link" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="adminNotifBadge" hidden>8</span>
+                </a>
+                <div class="admin-profile" id="adminProfileDropdown">
+                    <div class="admin-profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="admin-profile-info">
+                        <div class="admin-profile-name" id="adminProfileName">Store Admin</div>
+                        <div class="admin-profile-role" id="adminProfileRole">Administrator</div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-nav">
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Main</div>
+                <a href="index.html" class="admin-nav-item active" data-page="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="products/product-list.html" class="admin-nav-item" data-page="products">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="categories/categories.html" class="admin-nav-item" data-page="categories">
+                    <i class="fas fa-tags"></i> Categories
+                </a>
+                <a href="orders/orders.html" class="admin-nav-item" data-page="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                    <span class="nav-badge" id="adminOrdersBadge">12</span>
+                </a>
+                <a href="customers/customers.html" class="admin-nav-item" data-page="customers">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+            </div>
+
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Content</div>
+                <a href="content/content.html" class="admin-nav-item" data-page="content">
+                    <i class="fas fa-image"></i> Banners & Content
+                </a>
+                <a href="#" class="admin-nav-item" data-page="faq">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="#" class="admin-nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Store Settings
+                </a>
+            </div>
+
+            <div class="admin-nav-group" style="margin-top: auto;">
+                <a href="#" class="admin-nav-item btn-admin-danger btn-admin-sm" style="width: 100%; justify-content: flex-start;" id="adminLogout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="admin-page-header">
+            <div>
+                <h1 id="adminPageTitle">Dashboard</h1>
+                <p id="adminPageSubtitle">Overview of your OZVIO store performance.</p>
+            </div>
+            <div class="admin-page-actions">
+                <a href="products/product-add.html" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Product
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="admin-stats">
+            <div class="admin-stat-card">
+                <div class="stat-label">Total Sales</div>
+                <div class="stat-value" id="statTotalSales">$0</div>
+                <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> +12% vs last month</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">Total Orders</div>
+                <div class="stat-value" id="statTotalOrders">0</div>
+                <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> +5 vs last month</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">Total Products</div>
+                <div class="stat-value" id="statTotalProducts">0</div>
+                <div class="stat-icon"><i class="fas fa-box"></i></div>
+                <div class="stat-trend negative"><i class="fas fa-arrow-down"></i> -2 vs last month</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">Total Customers</div>
+                <div class="stat-value" id="statTotalCustomers">0</div>
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> +8 vs last month</div>
+            </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="admin-table-wrap" style="margin-bottom: 32px;">
+            <div class="admin-toolbar" style="margin-bottom: 0;">
+                <h2>Recent Orders</h2>
+                <a href="orders/orders.html" class="btn-admin btn-admin-outline btn-admin-sm">View All Orders</a>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Order #</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="adminRecentOrders">
+                    <!-- Rows rendered by dashboard.js -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Recent Customers + Low Stock -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div class="admin-table-wrap">
+                <div class="admin-toolbar" style="margin-bottom: 0;">
+                    <h2>Recent Customers</h2>
+                    <a href="customers/customers.html" class="btn-admin btn-admin-outline btn-admin-sm">View All Customers</a>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Orders</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminRecentCustomers">
+                        <!-- Rows rendered by dashboard.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="admin-table-wrap">
+                <div class="admin-toolbar" style="margin-bottom: 0;">
+                    <h2>Low Stock Alerts</h2>
+                    <a href="products/product-list.html" class="btn-admin btn-admin-outline btn-admin-sm">Manage Inventory</a>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>SKU</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminLowStock">
+                        <!-- Rows rendered by dashboard.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="admin-alert info" style="margin-top: 32px;">
+            <i class="fas fa-info-circle"></i>
+            <span>Demo mode: All data is frontend-only. No database or backend is connected. Use this interface to design your admin workflow before Supabase integration.</span>
+        </div>
+    </main>
+
+    <script src="../../script.js"></script>
+    <script src="dashboard/dashboard.js"></script>
+</body>
+</html>

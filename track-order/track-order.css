@@ -1,0 +1,241 @@
+/* ==========================================================================
+   OZVIO - Track Order Page Styles
+   Matches existing dark + champagne-gold theme from style.css
+   Load order: style.css  ->  track-order.css
+   ========================================================================== */
+
+.track-page {
+    padding: calc(var(--header-h) + 20px) 0 80px;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+.track-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.track-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+}
+
+.track-header p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.track-card {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    padding: 32px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.track-card .form-group {
+    margin-bottom: 20px;
+}
+
+.track-card label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.track-card input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    color: var(--text);
+}
+
+.track-card input:focus {
+    outline: 0;
+    border-color: rgba(214, 182, 129, 0.55);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset, 0 0 0 3px rgba(214, 182, 129, 0.1);
+}
+
+/* Result */
+.track-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.track-result-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.track-order-number {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: monospace;
+}
+
+.track-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 28px;
+    position: relative;
+    padding-left: 40px;
+}
+
+.track-timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--line);
+}
+
+.track-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    position: relative;
+}
+
+.track-step-marker {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    border: 2px solid var(--line);
+    background: var(--bg-alt);
+    color: var(--muted);
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.track-step-marker.completed {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--gold-ink);
+    box-shadow: 0 0 0 3px rgba(214, 182, 129, 0.2);
+}
+
+.track-step-content {
+    flex: 1;
+}
+
+.track-step-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.track-step-time {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.track-status-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.track-status-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+}
+
+.track-status-item:last-child {
+    border-bottom: 0;
+}
+
+.track-status-label {
+    color: var(--muted);
+}
+
+.track-status-value {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.track-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+}
+
+/* Empty states */
+.track-empty {
+    text-align: center;
+    padding: 40px 24px;
+}
+
+.track-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px dashed var(--line);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    color: var(--muted);
+    margin: 0 auto 16px;
+}
+
+.track-empty h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.track-empty p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .track-card {
+        padding: 24px;
+    }
+    .track-header h1 {
+        font-size: 1.5rem;
+    }
+}

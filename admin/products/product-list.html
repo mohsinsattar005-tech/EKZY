@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage OZVIO products">
+    <title>Products - OZVIO Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body class="admin-page">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="admin-brand">
+                <i class="fas fa-globe"></i>
+                <span>OZVIO Admin</span>
+            </div>
+
+            <div class="admin-top-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search products..." aria-label="Search products">
+            </div>
+
+            <div class="admin-top-actions">
+                <a href="#" class="icon-link" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="adminNotifBadge" hidden>8</span>
+                </a>
+                <div class="admin-profile" id="adminProfileDropdown">
+                    <div class="admin-profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="admin-profile-info">
+                        <div class="admin-profile-name" id="adminProfileName">Store Admin</div>
+                        <div class="admin-profile-role" id="adminProfileRole">Administrator</div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-nav">
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Main</div>
+                <a href="../index.html" class="admin-nav-item" data-page="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="product-list.html" class="admin-nav-item active" data-page="products">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="../categories/categories.html" class="admin-nav-item" data-page="categories">
+                    <i class="fas fa-tags"></i> Categories
+                </a>
+                <a href="../orders/orders.html" class="admin-nav-item" data-page="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                    <span class="nav-badge" id="adminOrdersBadge">12</span>
+                </a>
+                <a href="../customers/customers.html" class="admin-nav-item" data-page="customers">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+            </div>
+
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Content</div>
+                <a href="../content/content.html" class="admin-nav-item" data-page="content">
+                    <i class="fas fa-image"></i> Banners & Content
+                </a>
+                <a href="#" class="admin-nav-item" data-page="faq">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="#" class="admin-nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Store Settings
+                </a>
+            </div>
+
+            <div class="admin-nav-group" style="margin-top: auto;">
+                <a href="#" class="admin-nav-item btn-admin-danger btn-admin-sm" style="width: 100%; justify-content: flex-start;" id="adminLogout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="product-list-header">
+            <div>
+                <h2>Products</h2>
+                <p>Manage your store's product catalog. Changes are frontend demo only.</p>
+            </div>
+            <div class="product-actions-bar">
+                <a href="product-add.html" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Product
+                </a>
+            </div>
+        </div>
+
+        <!-- View toggle -->
+        <div class="admin-toolbar" style="margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--muted);">
+                <span>View:</span>
+                <button class="btn-admin btn-admin-outline btn-admin-sm" id="viewGrid" title="Grid view">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="btn-admin btn-admin-outline btn-admin-sm active" id="viewList" title="List view">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+                <select class="admin-filter" style="padding: 8px 14px; font-size: 0.85rem; background: var(--surface); border: 1px solid var(--line); color: var(--text); border-radius: var(--radius-sm);">
+                    <option value="all">All Products</option>
+                    <option value="published">Published</option>
+                    <option value="draft">Draft</option>
+                    <option value="low-stock">Low Stock</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Grid View -->
+        <div class="product-grid-view" id="productGrid">
+            <!-- Product cards rendered by products.js -->
+        </div>
+
+        <!-- Product Table View -->
+        <div class="product-table-view" hidden id="productTable">
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>SKU</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <!-- Rows rendered by products.js -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="admin-alert info" style="margin-top: 32px;">
+            <i class="fas fa-info-circle"></i>
+            <span>Demo mode: Product add/edit/delete are frontend-only UI interactions. No database records are created or modified.</span>
+        </div>
+    </main>
+
+    <script src="../../script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

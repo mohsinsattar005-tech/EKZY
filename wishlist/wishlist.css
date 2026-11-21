@@ -1,0 +1,189 @@
+/* ==========================================================================
+   OZVIO - Wishlist Page Styles
+   Matches existing dark + champagne-gold theme from style.css
+   Load order: style.css  ->  wishlist.css
+   ========================================================================== */
+
+.wishlist-page {
+    padding: calc(var(--header-h) + 20px) 0 80px;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+.wishlist-header {
+    margin-bottom: 32px;
+}
+
+.wishlist-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.wishlist-header p {
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.wishlist-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+    border-color: rgba(214, 182, 129, 0.3);
+}
+
+.wishlist-item-thumb {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+}
+
+.wishlist-item-thumb i {
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.wishlist-item-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wishlist-item-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    color: var(--muted);
+    background: rgba(9, 11, 16, 0.55);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+}
+
+.wishlist-item-remove:hover {
+    color: var(--danger);
+    background: rgba(239, 107, 115, 0.14);
+    border-color: rgba(239, 107, 115, 0.35);
+    transform: scale(1.08);
+}
+
+.wishlist-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 18px 18px;
+    flex: 1;
+}
+
+.wishlist-item-info h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+}
+
+.wishlist-item-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.wishlist-item-price .current-price {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.wishlist-item-price .old-price {
+    font-size: 0.82rem;
+    color: rgba(152, 160, 177, 0.7);
+    text-decoration: line-through;
+}
+
+.wishlist-item-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.wishlist-item-actions .btn {
+    flex: 1;
+    padding: 9px 12px;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 72px 24px;
+    color: var(--muted);
+}
+
+.empty-state-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--surface-2);
+    border: 1px dashed var(--line);
+    display: grid;
+    place-items: center;
+    font-size: 2.5rem;
+    color: var(--muted);
+    margin: 0 auto 20px;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .wishlist-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .wishlist-grid { grid-template-columns: 1fr; }
+    .wishlist-item-actions { flex-direction: column; }
+}

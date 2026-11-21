@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OZVIO - Product Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="product-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../gadgets.html">Gadgets</a></li>
+                    <li><a href="../electronics.html">Electronics</a></li>
+                    <li><a href="../smart-accessories.html">Smart Accessories</a></li>
+                    <li><a href="../tech-essentials.html">Tech Essentials</a></li>
+                </ul>
+            </nav>
+            <form class="search-bar">
+                <input type="search" placeholder="Search products...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="header-icons">
+                <a href="#" class="icon-link"><i class="fas fa-user"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-heart"></i></a>
+                <a href="#" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <button class="mobile-menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="../index.html">Home</a> <i class="fas fa-chevron-right"></i>
+            <a href="../gadgets.html">Gadgets</a> <i class="fas fa-chevron-right"></i>
+            <span>Galaxy S24 Ultra</span>
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail-page">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Left: Image Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <div class="image-placeholder"><i class="fas fa-mobile-alt"></i></div>
+                    </div>
+                    <div class="gallery-thumbs">
+                        <div class="thumb active"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="thumb"><i class="fas fa-tablet-alt"></i></div>
+                        <div class="thumb"><i class="fas fa-watch"></i></div>
+                        <div class="thumb"><i class="fas fa-camera"></i></div>
+                    </div>
+                </div>
+
+                <!-- Right: Product Info -->
+                <div class="product-info-panel">
+                    <span class="product-tag">SMARTPHONE</span>
+                    <h1 class="product-name">Galaxy S24 Ultra</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="#reviews" class="rating-link">4.7 (256 reviews)</a>
+                    </div>
+
+                    <div class="product-price">
+                        <span class="current-price">$899</span>
+                        <span class="old-price">$1,059</span>
+                        <span class="discount-tag">-15%</span>
+                    </div>
+
+                    <p class="product-short-desc">
+                        Experience the future with Galaxy S24 Ultra. Featuring a stunning 6.8" Dynamic AMOLED display, 
+                        200MP camera system, and S Pen integration for ultimate productivity.
+                    </p>
+
+                    <!-- Color Options -->
+                    <div class="product-options">
+                        <label>Color:</label>
+                        <div class="color-swatches">
+                            <button class="color-btn active" style="background:#1a1a1a" data-color="black"></button>
+                            <button class="color-btn" style="background:#c0c0c0" data-color="silver"></button>
+                            <button class="color-btn" style="background:#4a90d9" data-color="blue"></button>
+                            <button class="color-btn" style="background:#e8a87c" data-color="cream"></button>
+                        </div>
+                    </div>
+
+                    <!-- Storage Options -->
+                    <div class="product-options">
+                        <label>Storage:</label>
+                        <div class="storage-options">
+                            <button class="storage-btn active">256GB</button>
+                            <button class="storage-btn">512GB</button>
+                            <button class="storage-btn">1TB</button>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart -->
+                    <div class="product-actions">
+                        <div class="quantity-box">
+                            <button class="qty-minus">-</button>
+                            <input type="number" value="1" class="qty-input" min="1" max="10">
+                            <button class="qty-plus">+</button>
+                        </div>
+                        <button class="btn-add-cart">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <button class="btn-favorite">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="trust-item"><i class="fas fa-truck"></i><span>Free shipping</span></div>
+                        <div class="trust-item"><i class="fas fa-undo"></i><span>30-day returns</span></div>
+                        <div class="trust-item"><i class="fas fa-shield-alt"></i><span>2-year warranty</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs -->
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="specifications">Specifications</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+            <div class="tabs-content">
+                <div class="tab-pane active" id="description">
+                    <h3>Product Description</h3>
+                    <p>The Galaxy S24 Ultra represents the pinnacle of smartphone technology. With its cutting-edge camera system, 
+                    stunning display, and productivity-focused features, it's designed for users who demand the best.</p>
+                    <ul class="desc-list">
+                        <li><i class="fas fa-check"></i> 6.8" Dynamic AMOLED 2X display with 120Hz refresh rate</li>
+                        <li><i class="fas fa-check"></i> 200MP main camera with 100x Space Zoom</li>
+                        <li><i class="fas fa-check"></i> S Pen with 4,096 pressure levels for precise drawing</li>
+                        <li><i class="fas fa-check"></i> 5000mAh battery with 45W super-fast charging</li>
+                        <li><i class="fas fa-check"></i> Snapdragon 8 Gen 3 processor for lightning-fast performance</li>
+                    </ul>
+                </div>
+                <div class="tab-pane" id="specifications">
+                    <h3>Technical Specifications</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Display:</strong> 6.8" Dynamic AMOLED 2X, 120Hz</div>
+                        <div class="spec-item"><strong>Processor:</strong> Snapdragon 8 Gen 3</div>
+                        <div class="spec-item"><strong>RAM:</strong> 12GB / 16GB LPDDR5X</div>
+                        <div class="spec-item"><strong>Storage:</strong> 256GB / 512GB / 1TB UFS 4.0</div>
+                        <div class="spec-item"><strong>Rear Camera:</strong> 200MP + 12MP + 10MP</div>
+                        <div class="spec-item"><strong>Front Camera:</strong> 12MP</div>
+                        <div class="spec-item"><strong>Battery:</strong> 5000mAh, 45W charging</div>
+                        <div class="spec-item"><strong>OS:</strong> Android 14, One UI 6</div>
+                        <div class="spec-item"><strong>Connectivity:</strong> 5G, Wi-Fi 6E, BT 5.3</div>
+                        <div class="spec-item"><strong>Water Resistance:</strong> IP68</div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="reviews-list">
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Sarah Johnson</strong>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p>Best smartphone I've ever owned. The camera quality is incredible and the battery lasts all day. The S Pen is a game-changer for my work.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Mike Chen</strong>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                </div>
+                            </div>
+                            <p>Excellent build quality and performance. The display is stunning even in direct sunlight. Worth every penny.</p>
+                        </div>
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="avatar"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <strong>Priya Patel</strong>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                            </div>
+                            <p>I upgraded from S23 and the difference is massive. The camera improvements are mind-blowing. Highly recommended!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <div class="related-image"><i class="fas fa-tablet-alt"></i></div>
+                    <h4>iPad Pro 12.9"</h4>
+                    <div class="price">$1,099</div>
+                    <a href="#" class="related-link">View details</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-image"><i class="fas fa-watch"></i></div>
+                    <h4>Apple Watch Ultra</h4>
+                    <div class="price">$799</div>
+                    <a href="#" class="related-link">View details</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-image"><i class="fas fa-camera"></i></div>
+                    <h4>Sony Alpha A7 IV</h4>
+                    <div class="price">$2,199</div>
+                    <a href="#" class="related-link">View details</a>
+                </div>
+                <div class="related-card">
+                    <div class="related-image"><i class="fas fa-headphones"></i></div>
+                    <h4>Sony WH-1000XM5</h4>
+                    <div class="price">$349</div>
+                    <a href="#" class="related-link">View details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../gadgets.html">Gadgets</a></li>
+                        <li><a href="../electronics.html">Electronics</a></li>
+                        <li><a href="../smart-accessories.html">Smart Accessories</a></li>
+                        <li><a href="../tech-essentials.html">Tech Essentials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> Ozvio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product-script.js"></script>
+</body>
+</html>

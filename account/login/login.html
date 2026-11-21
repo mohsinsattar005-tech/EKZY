@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your OZVIO account">
+    <title>Login - OZVIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../shared/styles/account.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="../../index.html" class="logo" aria-label="OZVIO home">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#categories">Categories</a></li>
+                    <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                    <li><a href="../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-bar" id="searchForm" role="search">
+                <input type="search" placeholder="Search products..." class="search-input" id="searchInput" aria-label="Search products">
+                <button type="submit" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#" class="icon-link" id="accountLink" title="Account" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="icon-link" id="wishlistLink" title="Wishlist" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlistCount" hidden>0</span>
+                </a>
+                <a href="../../cart/cart.html" class="icon-link" id="cartLink" title="Cart" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount" hidden>0</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="account-page" id="login">
+            <div class="account-container">
+                <div class="account-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your OZVIO account to manage your orders and preferences.</p>
+                </div>
+
+                <div class="auth-layout">
+                    <!-- Form side -->
+                    <div class="auth-form-card">
+                        <h2>Sign In</h2>
+                        <p>Enter your email and password below to access your account.</p>
+
+                        <form id="loginForm" novalidate>
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address</label>
+                                <input type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
+                                <div class="error-msg" id="loginEmailError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Please enter a valid email address.</div>
+                            </div>
+
+                            <div class="form-group auth-input-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="password" placeholder="••••••••" required>
+                                <button type="button" class="toggle-password" id="toggleLoginPassword" aria-label="Toggle password visibility">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="error-msg" id="loginPasswordError" style="font-size: 0.78rem; color: var(--danger); margin-top: 6px; display: none;">Please enter your password.</div>
+                            </div>
+
+                            <div class="auth-options">
+                                <label class="remember-me">
+                                    <input type="checkbox" id="rememberMe" name="remember">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="../forgot-password/forgot.html">Forgot password?</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-auth">Sign In</button>
+                        </form>
+
+                        <div class="auth-divider">
+                            <span>Or continue with</span>
+                        </div>
+
+                        <div class="auth-footer">
+                            Don't have an account? <a href="../signup/signup.html">Create an account</a>
+                        </div>
+                    </div>
+
+                    <!-- Info side -->
+                    <div class="auth-info">
+                        <div class="auth-info-panel">
+                            <h3><i class="fas fa-shield-alt"></i>Why create an account?</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i>Track your orders and view order history</li>
+                                <li><i class="fas fa-check"></i>Save multiple shipping addresses</li>
+                                <li><i class="fas fa-check"></i>Manage your wishlist</li>
+                                <li><i class="fas fa-check"></i>Faster checkout on future orders</li>
+                                <li><i class="fas fa-check"></i>Exclusive updates and early access to sales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#categories">Categories</a></li>
+                        <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                        <li><a href="../../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="../faq/faq.html">FAQs</a></li>
+                        <li><a href="../shipping/shipping.html">Shipping Info</a></li>
+                        <li><a href="../returns/returns.html">Returns</a></li>
+                        <li><a href="../track-order/track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> OZVIO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../../script.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

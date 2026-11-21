@@ -1,0 +1,143 @@
+/* ==========================================================================
+   OZVIO - Shipping Information Page Styles
+   Matches existing dark + champagne-gold theme from style.css
+   Load order: style.css  ->  shipping.css
+   ========================================================================== */
+
+.shipping-page {
+    padding: calc(var(--header-h) + 20px) 0 80px;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+.policy-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.policy-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+}
+
+.policy-header p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.policy-card {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    padding: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.policy-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(214, 182, 129, 0.12);
+    border: 1px solid rgba(214, 182, 129, 0.3);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 0 auto 20px;
+}
+
+.policy-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.policy-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.policy-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.detail-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+}
+
+.detail-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(214, 182, 129, 0.1);
+    border: 1px solid rgba(214, 182, 129, 0.3);
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.detail-item h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.detail-item p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.policy-note {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+.policy-note p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .policy-card {
+        padding: 24px;
+    }
+    .policy-card h2 {
+        font-size: 1.25rem;
+    }
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

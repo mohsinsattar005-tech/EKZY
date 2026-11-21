@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your OZVIO order history">
+    <title>My Orders - OZVIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../shared/styles/account.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="../../index.html" class="logo" aria-label="OZVIO home">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#categories">Categories</a></li>
+                    <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                    <li><a href="../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-bar" id="searchForm" role="search">
+                <input type="search" placeholder="Search products..." class="search-input" id="searchInput" aria-label="Search products">
+                <button type="submit" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#" class="icon-link" id="accountLink" title="Account" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="icon-link" id="wishlistLink" title="Wishlist" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlistCount" hidden>0</span>
+                </a>
+                <a href="../../cart/cart.html" class="icon-link" id="cartLink" title="Cart" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount" hidden>0</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="account-page" id="orders">
+            <div class="account-container">
+                <div class="account-header">
+                    <h1>My Orders</h1>
+                    <p>View your order history and track recent purchases.</p>
+                </div>
+
+                <div class="account-dashboard">
+                    <!-- Sidebar -->
+                    <aside class="account-sidebar">
+                        <div class="user-avatar"><i class="fas fa-user"></i></div>
+                        <div class="user-name" id="sidebarUserName">Alex Rivera</div>
+                        <div class="user-email" id="sidebarUserEmail">alex@example.com</div>
+
+                        <nav>
+                            <a href="../profile/profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="orders.html" class="active"><i class="fas fa-shopping-bag"></i> My Orders</a>
+                            <a href="../wishlist/wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+                            <a href="#" id="sidebarLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </nav>
+                    </aside>
+
+                    <!-- Content -->
+                    <div class="account-content">
+                        <div class="dashboard-section">
+                            <h2>Order History</h2>
+                            <div class="table-wrap">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order Number</th>
+                                            <th>Date</th>
+                                            <th>Items</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ordersTableBody">
+                                        <!-- Orders rendered by orders.js -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#categories">Categories</a></li>
+                        <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                        <li><a href="../../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="../faq/faq.html">FAQs</a></li>
+                        <li><a href="../shipping/shipping.html">Shipping Info</a></li>
+                        <li><a href="../returns/returns.html">Returns</a></li>
+                        <li><a href="../track-order/track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> OZVIO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="../../script.js"></script>
+    <script src="orders.js"></script>
+</body>
+</html>

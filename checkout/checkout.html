@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" checkout="Checkout - OZVIO">
+    <title>Checkout - OZVIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../shared/styles/checkout.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container header-top">
+            <a href="../../index.html" class="logo" aria-label="OZVIO home">
+                <span class="logo-mark"><i class="fas fa-globe"></i></span>
+                <span class="logo-text">OZVIO</span>
+            </a>
+
+            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../../index.html#home">Home</a></li>
+                    <li><a href="../../index.html#categories">Categories</a></li>
+                    <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                    <li><a href="../../index.html#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-bar" id="searchForm" role="search">
+                <input type="search" placeholder="Search products..." class="search-input" id="searchInput" aria-label="Search products">
+                <button type="submit" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="header-icons">
+                <a href="#" class="icon-link" id="accountLink" title="Account" aria-label="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="#" class="icon-link" id="wishlistLink" title="Wishlist" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i>
+                    <span class="badge" id="wishlistCount" hidden>0</span>
+                </a>
+                <a href="../cart/cart.html" class="icon-link" id="cartLink" title="Cart" aria-label="Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount" hidden>0</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Checkout Page -->
+        <section class="checkout-page" id="checkout">
+            <div class="checkout-container">
+                <div class="checkout-header">
+                    <h1>Checkout</h1>
+                    <p>Review your order and shipping details before placing your order.</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="checkout-steps">
+                    <div class="step completed">
+                        <div class="step-number"><i class="fas fa-check"></i></div>
+                        <span class="step-label">Cart</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step active">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Details</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Confirm</span>
+                    </div>
+                </div>
+
+                <div class="checkout-grid">
+                    <!-- Left: Customer & Shipping Details -->
+                    <section class="checkout-form-section">
+                        <h2><i class="fas fa-user"></i>Customer Information</h2>
+
+                        <form id="checkoutForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                                    <div class="error-msg" id="firstNameError">Please enter your first name.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                                    <div class="error-msg" id="lastNameError">Please enter your last name.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address <span style="color: var(--danger)">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                                <div class="error-msg" id="emailError">Please enter a valid email address.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span style="color: var(--danger)">*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+                                <div class="error-msg" id="phoneError">Please enter a valid phone number.</div>
+                            </div>
+
+                            <h2 style="margin-top: 28px;"><i class="fas fa-truck"></i>Shipping Address</h2>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">Country <span style="color: var(--danger)">*</span></label>
+                                    <select id="country" name="country" required>
+                                        <option value="">Select country</option>
+                                        <option value="US">United States</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="IN">India</option>
+                                        <option value="JP">Japan</option>
+                                    </select>
+                                    <div class="error-msg" id="countryError">Please select a country.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="city" name="city" placeholder="New York" required>
+                                    <div class="error-msg" id="cityError">Please enter your city.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="address">Street Address <span style="color: var(--danger)">*</span></label>
+                                <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+                                <div class="error-msg" id="addressError">Please enter your street address.</div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="state">State / Province <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="state" name="state" placeholder="NY" required>
+                                    <div class="error-msg" id="stateError">Please enter your state or province.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postalCode">Postal Code <span style="color: var(--danger)">*</span></label>
+                                    <input type="text" id="postalCode" name="postalCode" placeholder="10001" required>
+                                    <div class="error-msg" id="postalCodeError">Please enter your postal code.</div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="continueToPayment">Continue to Payment</button>
+                        </form>
+                    </section>
+
+                    <!-- Right: Order Summary -->
+                    <aside class="order-summary">
+                        <h2><i class="fas fa-receipt"></i>Order Summary</h2>
+
+                        <div class="summary-items" id="summaryItems">
+                            <!-- Cart items rendered here -->
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-row">
+                            <span class="label">Subtotal</span>
+                            <span class="value" id="summarySubtotal">$0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="label">Shipping</span>
+                            <span class="value" id="summaryShipping">Free</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span class="label">Total</span>
+                            <span class="value" id="summaryTotal">$0</span>
+                        </div>
+
+                        <div class="payment-methods">
+                            <h3 style="font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 14px;">Payment Method</h3>
+
+                            <label class="payment-method selected">
+                                <input type="radio" name="payment" value="cod" checked>
+                                <div class="payment-method-icon"><i class="fas fa-money-bill-wave"></i></div>
+                                <span class="payment-method-label">Cash on Delivery</span>
+                                <span class="payment-method-note">Pay when your order arrives</span>
+                            </label>
+
+                            <label class="payment-method">
+                                <input type="radio" name="payment" value="card">
+                                <div class="payment-method-icon"><i class="fas fa-credit-card"></i></div>
+                                <span class="payment-method-label">Credit / Debit Card</span>
+                                <span class="payment-method-note">Secure online payment</span>
+                            </label>
+                        </div>
+
+                        <p class="terms-note">
+                            By placing this order you agree to our <a href="../../returns/returns.html">Return Policy</a> and <a href="../../shipping/shipping.html">Shipping Information</a>.
+                        </p>
+
+                        <button type="button" class="btn btn-primary place-order-btn" id="placeOrderBtn">
+                            <i class="fas fa-credit-card"></i> Place Order
+                        </button>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>OZVIO</h3>
+                    <p>Shop the world your way. Premium products, exceptional service and global reach.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#categories">Categories</a></li>
+                        <li><a href="../../index.html#new-arrivals">New Arrivals</a></li>
+                        <li><a href="../../index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer support</h3>
+                    <ul>
+                        <li><a href="../faq/faq.html">FAQs</a></li>
+                        <li><a href="../shipping/shipping.html">Shipping Info</a></li>
+                        <li><a href="../returns/returns.html">Returns</a></li>
+                        <li><a href="../track-order/track-order.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect with us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2026</span> OZVIO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Order Confirmation Overlay (hidden by default) -->
+    <div class="order-confirmation" id="orderConfirmation" hidden>
+        <div class="confirmation-container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 id="confirmationTitle">Order Placed!</h1>
+            <p id="confirmationMessage">Thank you for your order. Your order has been received and is being processed.</p>
+
+            <div class="order-details-card">
+                <h3>Order Details</h3>
+                <div class="order-detail-row">
+                    <span class="label">Order Number</span>
+                    <span class="value" id="confirmOrderNumber">OSV-000000</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="label">Order Date</span>
+                    <span class="value" id="confirmOrderDate"></span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="label">Payment Method</span>
+                    <span class="value" id="confirmPaymentMethod">Cash on Delivery</span>
+                </div>
+                <div class="order-detail-row">
+                    <span class="label">Items</span>
+                    <span class="value" id="confirmItems">0 items</span>
+                </div>
+                <div class="order-detail-row total">
+                    <span class="label">Total Paid</span>
+                    <span class="value" id="confirmTotal">$0</span>
+                </div>
+            </div>
+
+            <div class="confirmation-actions">
+                <button type="button" class="btn btn-primary" id="continueShopping">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </button>
+                <button type="button" class="btn btn-outline" id="trackMyOrder">
+                    <i class="fas fa-truck"></i> Track My Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit product - OZVIO Admin">
+    <title>Edit Product - OZVIO Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body class="admin-page">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="admin-brand">
+                <i class="fas fa-globe"></i>
+                <span>OZVIO Admin</span>
+            </div>
+
+            <div class="admin-top-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search products..." aria-label="Search products">
+            </div>
+
+            <div class="admin-top-actions">
+                <a href="#" class="icon-link" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="adminNotifBadge" hidden>8</span>
+                </a>
+                <div class="admin-profile" id="adminProfileDropdown">
+                    <div class="admin-profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="admin-profile-info">
+                        <div class="admin-profile-name" id="adminProfileName">Store Admin</div>
+                        <div class="admin-profile-role" id="adminProfileRole">Administrator</div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-nav">
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Main</div>
+                <a href="../index.html" class="admin-nav-item" data-page="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="product-list.html" class="admin-nav-item" data-page="products">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="../categories/categories.html" class="admin-nav-item" data-page="categories">
+                    <i class="fas fa-tags"></i> Categories
+                </a>
+                <a href="../orders/orders.html" class="admin-nav-item" data-page="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                    <span class="nav-badge" id="adminOrdersBadge">12</span>
+                </a>
+                <a href="../customers/customers.html" class="admin-nav-item" data-page="customers">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+            </div>
+
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Content</div>
+                <a href="../content/content.html" class="admin-nav-item" data-page="content">
+                    <i class="fas fa-image"></i> Banners & Content
+                </a>
+                <a href="#" class="admin-nav-item" data-page="faq">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="#" class="admin-nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Store Settings
+                </a>
+            </div>
+
+            <div class="admin-nav-group" style="margin-top: auto;">
+                <a href="#" class="admin-nav-item btn-admin-danger btn-admin-sm" style="width: 100%; justify-content: flex-start;" id="adminLogout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="product-form-header">
+            <div>
+                <h2>Edit Product</h2>
+                <p>Modify product details. Frontend demo only.</p>
+            </div>
+            <a href="product-list.html" class="btn btn-outline">
+                <i class="fas fa-arrow-left"></i> Back to Products
+            </a>
+        </div>
+
+        <form id="editProductForm" class="product-form" novalidate>
+            <div class="product-form-tabs">
+                <button class="product-form-tab active" data-tab="basic">Basic Information</button>
+                <button class="product-form-tab" data-tab="pricing">Pricing</button>
+                <button class="product-form-tab" data-tab="variations">Variations</button>
+                <button class="product-form-tab" data-tab="inventory">Inventory</button>
+                <button class="product-form-tab" data-tab="shipping">Shipping</button>
+                <button class="product-form-tab" data-tab="seo">SEO & Settings</button>
+            </div>
+
+            <!-- Basic Information -->
+            <div class="product-form-tab-content active" id="tabBasic">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-info-circle"></i>Basic Information</h3>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>Product Title <span class="req">*</span></label>
+                            <input type="text" name="title" value="Premium Smartphone X" required>
+                            <div class="product-form-error" id="errTitle">Product title is required.</div>
+                        </div>
+                        <div class="product-form-group">
+                            <label>SKU <span class="req">*</span></label>
+                            <input type="text" name="sku" value="OZ-1001" required>
+                            <div class="product-form-error" id="errSKU">SKU is required.</div>
+                        </div>
+                    </div>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>Category <span class="req">*</span></label>
+                            <select name="category" required>
+                                <option value="">Select category</option>
+                                <option value="Gadgets" selected>Gadgets</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Smart Accessories">Smart Accessories</option>
+                                <option value="Tech Essentials">Tech Essentials</option>
+                            </select>
+                            <div class="product-form-error" id="errCategory">Please select a category.</div>
+                        </div>
+                        <div class="product-form-group">
+                            <label>Subcategory</label>
+                            <input type="text" name="subcategory" value="Smartphones">
+                        </div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Brand</label>
+                        <input type="text" name="brand" value="OZVIO">
+                    </div>
+                    <div class="product-form-group">
+                        <label>Product Type</label>
+                        <select name="productType">
+                            <option value="physical" selected>Physical Product</option>
+                            <option value="digital">Digital Product</option>
+                        </select>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Short Description</label>
+                        <textarea name="shortDescription" rows="3">Premium smartphone with an edge-to-edge display and all-day battery.</textarea>
+                        <div class="product-form-hint">Shown on product cards and category pages.</div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Full Description</label>
+                        <textarea name="description" rows="6">The Premium Smartphone X delivers a flagship experience with a stunning display, powerful processor, and all-day battery life.</textarea>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Product Tags (comma-separated)</label>
+                        <input type="text" name="tags" value="gadget, phone, new">
+                        <div class="product-form-hint">Helps customers find your product via search.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="product-form-tab-content" id="tabPricing">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-tag"></i>Pricing</h3>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>Regular Price <span class="req">*</span></label>
+                            <input type="number" name="regularPrice" value="599" min="0" step="0.01" required>
+                            <div class="product-form-error" id="errPrice">Regular price is required.</div>
+                        </div>
+                        <div class="product-form-group">
+                            <label>Sale Price</label>
+                            <input type="number" name="salePrice" value="" min="0" step="0.01">
+                            <div class="product-form-hint">Leave blank for no sale.</div>
+                        </div>
+                        <div class="product-form-group">
+                            <label>Cost Price (admin only)</label>
+                            <input type="number" name="costPrice" value="372" min="0" step="0.01">
+                            <div class="product-form-hint">Not shown to customers.</div>
+                        </div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Availability</label>
+                        <select name="availability">
+                            <option value="in_stock" selected>In Stock</option>
+                            <option value="out_of_stock">Out of Stock</option>
+                            <option value="preorder">Pre-order</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variations -->
+            <div class="product-form-tab-content" id="tabVariations">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-sliders-h"></i>Product Variations</h3>
+                    <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 16px;">
+                        Add variations such as size, color, or material. Each variation can have its own price, stock, and SKU.
+                    </p>
+                    <div class="variations-list" id="variationsList">
+                        <!-- Demo variations -->
+                        <div class="variation-item">
+                            <div style="flex:1; min-width:140px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Variation Name</label>
+                                <input type="text" value="Colour / Storage" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:140px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Label</label>
+                                <input type="text" value="Midnight Black / 256GB" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:100px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Price</label>
+                                <input type="number" value="899" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:100px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Stock</label>
+                                <input type="number" value="30" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <button type="button" class="btn-remove-var" title="Remove variation"><i class="fas fa-trash"></i></button>
+                        </div>
+                        <div class="variation-item">
+                            <div style="flex:1; min-width:140px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Variation Name</label>
+                                <input type="text" value="Colour / Storage" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:140px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Label</label>
+                                <input type="text" value="Titanium Silver / 256GB" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:100px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Price</label>
+                                <input type="number" value="899" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <div style="flex:1; min-width:100px;">
+                                <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:4px;">Stock</label>
+                                <input type="number" value="22" style="width:100%;padding:8px 12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:6px;color:var(--text);font-size:0.88rem;">
+                            </div>
+                            <button type="button" class="btn-remove-var" title="Remove variation"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-variation" id="addVariation">
+                        <i class="fas fa-plus"></i> Add Variation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Inventory -->
+            <div class="product-form-tab-content" id="tabInventory">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-boxes"></i>Inventory</h3>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>Stock Quantity <span class="req">*</span></label>
+                            <input type="number" name="stockQty" value="24" min="0" required>
+                            <div class="product-form-error" id="errStock">Stock quantity is required.</div>
+                        </div>
+                        <div class="product-form-group">
+                            <label>Low Stock Threshold</label>
+                            <input type="number" name="lowStockThreshold" value="5" min="0">
+                            <div class="product-form-hint">Alert when stock falls below this number.</div>
+                        </div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Weight (kg)</label>
+                        <input type="number" name="weight" value="0.22" min="0" step="0.01">
+                    </div>
+                    <div class="product-form-group">
+                        <label>Track Inventory</label>
+                        <select name="trackInventory">
+                            <option value="yes" selected>Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping -->
+            <div class="product-form-tab-content" id="tabShipping">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-truck"></i>Shipping</h3>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>Dimensions (L x W x H, cm)</label>
+                            <input type="text" name="dimensions" value="160 x 75 x 8">
+                        </div>
+                        <div class="product-form-group">
+                            <label>Processing Time</label>
+                            <input type="text" name="processingTime" value="1-2 business days">
+                        </div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Shipping Details</label>
+                        <textarea name="shippingDetails" rows="3">Ships worldwide via standard delivery. Estimated 20-22 days.</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO & Settings -->
+            <div class="product-form-tab-content" id="tabSeo">
+                <div class="product-form-section">
+                    <h3><i class="fas fa-search"></i>SEO & Settings</h3>
+                    <div class="product-form-row">
+                        <div class="product-form-group">
+                            <label>SEO Title</label>
+                            <input type="text" name="seoTitle" value="Premium Smartphone X | OZVIO">
+                        </div>
+                        <div class="product-form-group">
+                            <label>Product Slug</label>
+                            <input type="text" name="slug" value="premium-smartphone-x">
+                            <div class="product-form-hint">URL-friendly version of the product title.</div>
+                        </div>
+                    </div>
+                    <div class="product-form-group">
+                        <label>Meta Description</label>
+                        <textarea name="metaDescription" rows="3">Shop Premium Smartphone X at OZVIO. Edge-to-edge display, all-day battery, worldwide shipping.</textarea>
+                    </div>
+                </div>
+
+                <div class="product-form-section">
+                    <h3><i class="fas fa-cog"></i>Additional Settings</h3>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                        <input type="checkbox" name="featured" id="featured" checked>
+                        <label for="featured" style="margin: 0; font-size: 0.88rem; color: var(--text); cursor: pointer;">Featured Product</label>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" name="status" id="productStatus" checked>
+                        <label for="productStatus" style="margin: 0; font-size: 0.88rem; color: var(--text); cursor: pointer;">Published</label>
+                        <span style="margin-left: auto; font-size: 0.78rem; color: var(--muted);">Uncheck to save as draft</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-form-actions">
+                <button type="button" class="btn btn-outline" onclick="window.location.href='product-list.html'">Cancel</button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </form>
+
+        <div class="admin-alert info" style="margin-top: 32px;">
+            <i class="fas fa-info-circle"></i>
+            <span>Demo mode: Changes are frontend-only UI interactions. No product records are updated in a database.</span>
+        </div>
+    </main>
+
+    <script src="../../script.js"></script>
+    <script src="product-form.js"></script>
+</body>
+</html>

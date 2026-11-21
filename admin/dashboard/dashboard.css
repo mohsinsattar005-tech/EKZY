@@ -1,0 +1,24 @@
+/* ==========================================================================
+   OZVIO - Admin Dashboard Overview Styles
+   Load order: style.css  ->  admin/admin.css  ->  dashboard/dashboard.css
+   ========================================================================== */
+
+/* Dashboard-specific tweaks beyond admin.css */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}

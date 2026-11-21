@@ -1,0 +1,516 @@
+/* ==========================================================================
+   OZVIO - Admin Product Management Styles
+   Load order: style.css  ->  admin/admin.css  ->  products/products.css
+   ========================================================================== */
+
+/* Product list page */
+.product-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.product-list-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.product-list-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.product-actions-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Product grid view (cards) */
+.product-grid-view {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.product-card-admin {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.product-card-admin:hover {
+    border-color: var(--gold);
+}
+
+.product-card-admin-thumb {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+}
+
+.product-card-admin-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card-admin-thumb i {
+    font-size: 1.8rem;
+    color: var(--muted);
+}
+
+.product-card-admin-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+    color: var(--gold-ink);
+    background: var(--gold);
+}
+
+.product-card-admin-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+}
+
+.product-card-admin-status.published {
+    background: rgba(31, 122, 77, 0.15);
+    color: #1f7a4d;
+}
+
+.product-card-admin-status.draft {
+    background: rgba(214, 182, 129, 0.15);
+    color: var(--gold-deep);
+}
+
+.product-card-admin-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.product-card-admin-info h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.product-card-admin-meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.product-card-admin-price {
+    margin-top: auto;
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--line);
+}
+
+.product-card-admin-price .price {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--gold);
+}
+
+.product-card-admin-actions {
+    display: flex;
+    gap: 6px;
+    padding: 14px;
+    border-top: 1px solid var(--line);
+    background: var(--bg-alt);
+}
+
+.product-card-admin-actions .btn-admin {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Product table view */
+.product-table-view {
+    margin-top: 20px;
+}
+
+/* Add/Edit form */
+.product-form {
+    max-width: 900px;
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    padding: 32px;
+}
+
+.product-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.product-form-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.product-form-header p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.product-form-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+}
+
+.product-form-tab {
+    padding: 14px 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.product-form-tab:hover {
+    color: var(--text);
+}
+
+.product-form-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+.product-form-tab-content {
+    display: none;
+}
+
+.product-form-tab-content.active {
+    display: block;
+}
+
+.product-form-section {
+    margin-bottom: 32px;
+}
+
+.product-form-section:last-child {
+    margin-bottom: 0;
+}
+
+.product-form-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-form-section h3 i {
+    color: var(--gold);
+}
+
+.product-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-form-group {
+    margin-bottom: 20px;
+}
+
+.product-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.product-form-group label span.req {
+    color: var(--danger);
+    margin-left: 4px;
+}
+
+.product-form-group input,
+.product-form-group select,
+.product-form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 0.88rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    color: var(--text);
+}
+
+.product-form-group input:focus,
+.product-form-group select:focus,
+.product-form-group textarea:focus {
+    outline: 0;
+    border-color: rgba(214, 182, 129, 0.55);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset, 0 0 0 3px rgba(214, 182, 129, 0.1);
+}
+
+.product-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.product-form-hint {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+.product-form-error {
+    font-size: 0.78rem;
+    color: var(--danger);
+    margin-top: 6px;
+    display: none;
+}
+
+.product-form-group.error input,
+.product-form-group.error select,
+.product-form-group.error textarea {
+    border-color: var(--danger);
+}
+
+.product-form-group.error .product-form-error {
+    display: block;
+}
+
+.product-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+/* Variations specific */
+.variations-list {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--bg-alt);
+    padding: 0;
+}
+
+.variation-item {
+    display: flex;
+    gap: 10px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.variation-item:last-child {
+    border-bottom: 0;
+}
+
+.variation-item input {
+    flex: 1;
+    min-width: 100px;
+}
+
+.variation-item .btn-remove-var {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--danger);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.variation-item .btn-remove-var:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-add-variation {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--line);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.btn-add-variation:hover {
+    border-color: var(--gold);
+    background: rgba(214, 182, 129, 0.05);
+}
+
+/* Gallery specific */
+.product-gallery-upload {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item i {
+    font-size: 2rem;
+    color: var(--muted);
+}
+
+.gallery-item .btn-remove-var {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--danger);
+    color: #fff;
+    border: none;
+    width: 26px;
+    height: 26px;
+}
+
+.image-upload-zone {
+    border: 2px dashed var(--line);
+    border-radius: var(--radius-sm);
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.image-upload-zone:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(214, 182, 129, 0.05);
+}
+
+.image-upload-zone i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--muted);
+}
+
+.image-upload-zone p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .product-grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .product-form-actions {
+        flex-direction: column;
+    }
+
+    .product-form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .product-grid-view {
+        grid-template-columns: 1fr;
+    }
+
+    .product-form {
+        padding: 20px;
+    }
+
+    .variation-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .variation-item input {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .variation-item .btn-remove-var {
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage content - OZVIO Admin">
+    <title>Content - OZVIO Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../admin.css">
+</head>
+<body class="admin-page">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-header-inner">
+            <div class="admin-brand">
+                <i class="fas fa-globe"></i>
+                <span>OZVIO Admin</span>
+            </div>
+
+            <div class="admin-top-search">
+                <i class="fas fa-search"></i>
+                <input type="search" placeholder="Search content..." aria-label="Search content">
+            </div>
+
+            <div class="admin-top-actions">
+                <a href="#" class="icon-link" title="Notifications" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="adminNotifBadge" hidden>8</span>
+                </a>
+                <div class="admin-profile" id="adminProfileDropdown">
+                    <div class="admin-profile-avatar"><i class="fas fa-user"></i></div>
+                    <div class="admin-profile-info">
+                        <div class="admin-profile-name" id="adminProfileName">Store Admin</div>
+                        <div class="admin-profile-role" id="adminProfileRole">Administrator</div>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-nav">
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Main</div>
+                <a href="../index.html" class="admin-nav-item" data-page="dashboard">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="../products/product-list.html" class="admin-nav-item" data-page="products">
+                    <i class="fas fa-box"></i> Products
+                </a>
+                <a href="../categories/categories.html" class="admin-nav-item" data-page="categories">
+                    <i class="fas fa-tags"></i> Categories
+                </a>
+                <a href="../orders/orders.html" class="admin-nav-item" data-page="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                    <span class="nav-badge" id="adminOrdersBadge">12</span>
+                </a>
+                <a href="../customers/customers.html" class="admin-nav-item" data-page="customers">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+            </div>
+
+            <div class="admin-nav-group">
+                <div class="admin-nav-group-label">Content</div>
+                <a href="content.html" class="admin-nav-item active" data-page="content">
+                    <i class="fas fa-image"></i> Banners & Content
+                </a>
+                <a href="#" class="admin-nav-item" data-page="faq">
+                    <i class="fas fa-question-circle"></i> FAQ
+                </a>
+                <a href="#" class="admin-nav-item" data-page="settings">
+                    <i class="fas fa-cog"></i> Store Settings
+                </a>
+            </div>
+
+            <div class="admin-nav-group" style="margin-top: auto;">
+                <a href="#" class="admin-nav-item btn-admin-danger btn-admin-sm" style="width: 100%; justify-content: flex-start;" id="adminLogout">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="admin-page-header">
+            <div>
+                <h1>Website Content</h1>
+                <p>Manage homepage banners, featured products, FAQ, policies, and store information.</p>
+            </div>
+            <a href="#" class="btn btn-primary" onclick="showAddBannerModal()">
+                <i class="fas fa-plus"></i> Add Banner
+            </a>
+        </div>
+
+        <!-- Content sections grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:32px;">
+            <div class="admin-stat-card">
+                <div class="stat-label">Homepage Banners</div>
+                <div class="stat-value">3</div>
+                <div class="stat-icon"><i class="fas fa-image"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> Active</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">Featured Products</div>
+                <div class="stat-value">8</div>
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-trend negative"><i class="fas fa-arrow-down"></i> 2 expiring</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">FAQ Articles</div>
+                <div class="stat-value">6</div>
+                <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> All visible</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="stat-label">Store Pages</div>
+                <div class="stat-value">4</div>
+                <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="stat-trend positive"><i class="fas fa-arrow-up"></i> Published</div>
+            </div>
+        </div>
+
+        <!-- Banner list -->
+        <div class="admin-table-wrap" style="margin-bottom: 32px;">
+            <div class="admin-toolbar" style="margin-bottom: 0;">
+                <h2>Homepage Banners</h2>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Banner</th>
+                        <th>Title</th>
+                        <th>Position</th>
+                        <th>Visibility</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bannersTableBody">
+                    <!-- Rows rendered below -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Featured products -->
+        <div class="admin-table-wrap" style="margin-bottom: 32px;">
+            <div class="admin-toolbar" style="margin-bottom: 0;">
+                <h2>Featured Products</h2>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Position</th>
+                        <th>Visibility</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="featuredTableBody">
+                    <!-- Rows rendered below -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="admin-alert info" style="margin-top: 32px;">
+            <i class="fas fa-info-circle"></i>
+            <span>Demo mode: Content add/edit/delete are frontend-only UI interactions. These are not connected to the customer-facing website yet.</span>
+        </div>
+
+        <!-- Add Banner Modal -->
+        <div class="admin-modal-overlay" id="addBannerModal">
+            <div class="admin-modal admin-confirm-modal">
+                <div class="admin-modal-header">
+                    <h3>Add Homepage Banner</h3>
+                    <button class="admin-modal-close" id="closeAddBannerModal">&times;</button>
+                </div>
+                <div class="admin-modal-body">
+                    <form id="addBannerForm" style="display:flex;flex-direction:column;gap:16px;">
+                        <div>
+                            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Banner Title <span style="color:var(--danger)">*</span></label>
+                            <input type="text" name="title" placeholder="e.g. Summer Sale" required style="width:100%;padding:11px 14px;font-size:0.88rem;background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);">
+                        </div>
+                        <div>
+                            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Image URL</label>
+                            <input type="text" name="image" placeholder="https://example.com/banner.jpg" style="width:100%;padding:11px 14px;font-size:0.88rem;background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);">
+                        </div>
+                        <div>
+                            <label style="display:block;font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:8px;">Link URL</label>
+                            <input type="text" name="link" placeholder="#categories" style="width:100%;padding:11px 14px;font-size:0.88rem;background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text);">
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;">
+                            <input type="checkbox" name="visible" id="bannerVisible" checked style="accent-color:var(--gold);">
+                            <label for="bannerVisible" style="margin:0;font-size:0.88rem;color:var(--text);cursor:pointer;">Visible on homepage</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="admin-modal-actions">
+                    <button type="button" class="btn btn-outline" id="cancelAddBanner">Cancel</button>
+                    <button type="submit" form="addBannerForm" class="btn btn-primary">Add Banner</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../script.js"></script>
+    <script src="content.js"></script>
+</body>
+</html>
